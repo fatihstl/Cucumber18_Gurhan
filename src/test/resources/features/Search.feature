@@ -13,7 +13,7 @@ Feature: Search
     When User searches apple
     Then User should see apple in the title
 
-  @gog
+
   Scenario: Google title verification after search
     When User searches "broccoli"
     Then User should see "broccoli" in the title
@@ -23,3 +23,14 @@ Feature: Search
     Then User should see About link
     And User clicks to About link
     Then User should see title Google - About Google, Our Culture & Company News
+
+
+  @googleTable
+  Scenario: Google search page footer links verification
+    Then User should see six links in the footer
+      | Advertising      |
+      | Business         |
+      | How Search Works |
+      | Privacy          |
+      | Terms            |
+      | Settings         |

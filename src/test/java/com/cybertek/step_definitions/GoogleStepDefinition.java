@@ -2,12 +2,15 @@ package com.cybertek.step_definitions;
 
 import com.cybertek.pages.GoogleSearchPage;
 import com.cybertek.utilities.Driver;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+
+import java.util.List;
 
 public class GoogleStepDefinition {
 
@@ -99,6 +102,20 @@ public class GoogleStepDefinition {
 
         Assert.assertEquals(actualTitle, expectedTitle);
 
+
+
     }
+    @Then("User should see six links in the footer")
+    public void user_should_see_six_links_in_the_footer(List<String >linkString) {
+
+        int expectedsize= linkString.size();
+        int actualSize = googleSearchPage.footerLinks.size();
+
+        Assert.assertEquals(actualSize,expectedsize);
+
+    }
+
+
+
 
 }
